@@ -1,0 +1,28 @@
+#!/usr/bin/env cwl-runner
+cwlVersion: v1.0
+class: CommandLineTool
+doc: "helm spark"
+requirements:
+  - class: HelmRequirement
+    chartRepo: "https://platformedtasks.github.io/platform_charts/charts"
+    chartVersion: "6.0.0"
+    chartName: "spark"
+    executorImage: "ludovicofunari/spark:latest"
+
+inputs: []
+
+outputs:
+  - id: output
+    type: stdout
+
+stdout: spark
+
+
+#baseCommand: ["/bin/sh", "-c"]
+#arguments: ["sleep infinity"]
+
+baseCommand: ["python3"]
+arguments: ["/opt/bitnami/spark/examples/spark-executor.py", "spark-submit --conf=spark.jars.ivy=/tmp/.ivy --class=org.apache.spark.examples.SparkPi --deploy-mode=cluster file:///opt/bitnami/spark/examples/jars/spark-examples_2.12-3.2.0.jar"]
+#
+#baseCommand: ["/bin/sh", "-c"]
+#arguments: ["spark-submit --conf spark.jars.ivy=/tmp/.ivy --class org.apache.spark.examples.SparkPi --master spark://10.97.212.226:7077 --deploy-mode cluster file:///opt/bitnami/spark/examples/jars/spark-examples_2.12-3.2.0.jar"]

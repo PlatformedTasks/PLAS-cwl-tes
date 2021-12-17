@@ -1,0 +1,8 @@
+Apache Royale
+Copyright 2020 The Apache Software Foundation
+
+This product includes software developed at CNIT – Research unit of University of Rome “Tor Vergata”
+The Initial Developers of some parts of the framework, which are copied from, derived from, or inspired by are those of the following GitHub repositories:
+1.    https://github.com/ohsu-comp-bio/cwl-tes
+2.    https://github.com/common-workflow-language/cwltool
+3.    https://github.com/common-workflow-language/schema_salad

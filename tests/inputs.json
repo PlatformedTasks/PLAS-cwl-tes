@@ -1,0 +1,15 @@
+{
+    "input": {
+        "class": "File",
+        "location": "ftp://10.0.0.10/files/input.txt"
+    },
+    "values": {
+        "class": "File",
+        "location": "ftp://10.0.0.10/files/horovod-values.yaml",
+        "TMconfig": true
+    },
+    "train": {
+        "class": "File",
+        "location": "ftp://10.0.0.10/files/train-easy.py"
+    }
+}
