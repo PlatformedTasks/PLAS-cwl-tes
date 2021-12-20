@@ -20,6 +20,6 @@ pip3 install -r requirements.txt
 * Submit the CWL task or workflow
 
 ```
-cwl-tes --remote-storage-url ftp://10.0.0.10/files/out --insecure --tes http://10.0.0.10:31567  tests/helm-horovod.cwl.yml --input tests/inputs.txt
+python cwl-tes.py --remote-storage-url ftp://10.0.0.10/files/out --insecure --tes http://10.0.0.10:31567  tests/helm-horovod.cwl.yml --input tests/inputs.txt
 ```
 
