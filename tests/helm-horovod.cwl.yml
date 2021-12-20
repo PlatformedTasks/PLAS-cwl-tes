@@ -4,7 +4,7 @@ class: CommandLineTool
 doc: "helm horovod"
 requirements:
   - class: HelmRequirement
-    chartRepo: "https://platformedtasks.github.io/platform_charts/charts"
+    chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
     chartVersion: "3.0.0"
     chartName: "horovod"
     executorImage: "ludovicofunari/horovod:latest"
