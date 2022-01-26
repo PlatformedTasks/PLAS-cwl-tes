@@ -4,10 +4,10 @@ class: CommandLineTool
 doc: "helm spark"
 requirements:
   - class: HelmRequirement
-    chartRepo: "https://platformedtasks.github.io/platform_charts/charts"
+    chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
     chartVersion: "6.0.0"
     chartName: "spark"
-    executorImage: "ludovicofunari/spark:latest"
+    executorImage: "platformedtasks/spark:latest"
 
 inputs: []
 
