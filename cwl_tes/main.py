@@ -46,6 +46,7 @@ DEFAULT_TOKEN_PUBLIC_KEY = os.environ.get('TOKEN_PUBLIC_KEY', '')
 
 
 def versionstring():
+    return "cwl_tes 2 with cwltool unknown"
     """Determine our version."""
     pkg = pkg_resources.require("cwltool")
     if pkg:
