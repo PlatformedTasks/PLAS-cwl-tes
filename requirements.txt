@@ -1,5 +1,15 @@
+lockfile==0.12.2
+coloredlogs==15.0
+prov==1.5.1
 future>=0.16.0
 requests>=2.18.2
 py-tes>=0.4.0
 PyJWT>=1.6.4
 typing_extensions>=3.7.4
+ruamel.yaml==0.16.0
+CacheControl==0.12.6
+rdflib==4.2.2
+shellescape==3.4.1
+mypy-extensions==0.4.3
+pathlib2==2.3.5
+psutil==5.8.0
