@@ -11,7 +11,9 @@ PLAS-cwl-tes is an element of the [PLAS project](https://github.com/PlatformedTa
 
 ## Requirements
 
-* Python >= 3.6
+* python, python-dev >= 3.6
+* FTP configured
+* Kubernetes >= 1.21
 
 ## Quickstart
 
@@ -23,6 +25,15 @@ pip3 install -r requirements.txt
 
 2. Submit the CWL task or workflow
 
+```console
+python3 cwl-tes.py --remote-storage-url ftp://10.0.0.10/files/out --insecure --tes http://10.0.0.10:31567 --leave-outputs tests/helm-horovod.cwl.yml tests/inputs.json
 ```
-python cwl-tes.py --remote-storage-url ftp://10.0.0.10/files/out --insecure --tes http://10.0.0.10:31567 --leave-outputs tests/helm-horovod.cwl.yml tests/inputs.json
+Command Argument | Meaning
+ ------------ | -------------
+`ftp://10.0.0.10/files/out` | FTP remote directory where output is saved
+`http://10.0.0.10:31567` | Kubernetes cluster endpoint
+`tests/helm-horovod.cwl.yml` | CWL file
+`tests/inputs.json` | File that links CWL inputs to their path
+
+
 ```
