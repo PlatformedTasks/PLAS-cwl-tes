@@ -11,5 +11,9 @@
     "train": {
         "class": "File",
         "location": "ftp://10.0.0.10/files/train-easy.py"
+    },
+    "spark_example": {
+        "class": "File",
+        "location": "ftp://10.0.0.10/files/spark_example.jar"
     }
 }

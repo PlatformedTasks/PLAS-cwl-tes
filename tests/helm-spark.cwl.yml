@@ -9,7 +9,12 @@ requirements:
     chartName: "spark"
     executorImage: "platformedtasks/spark:latest"
 
-inputs: []
+inputs:
+  - id: spark_example
+    type: File
+    doc: "original content"
+    inputBinding:
+      position: 1
 
 outputs:
   - id: output
@@ -17,12 +22,5 @@ outputs:
 
 stdout: spark
 
-
-#baseCommand: ["/bin/sh", "-c"]
-#arguments: ["sleep infinity"]
-
 baseCommand: ["python3"]
-arguments: ["/opt/bitnami/spark/examples/spark-executor.py", "spark-submit --conf=spark.jars.ivy=/tmp/.ivy --class=org.apache.spark.examples.SparkPi --deploy-mode=cluster file:///opt/bitnami/spark/examples/jars/spark-examples_2.12-3.2.0.jar"]
-#
-#baseCommand: ["/bin/sh", "-c"]
-#arguments: ["spark-submit --conf spark.jars.ivy=/tmp/.ivy --class org.apache.spark.examples.SparkPi --master spark://10.97.212.226:7077 --deploy-mode cluster file:///opt/bitnami/spark/examples/jars/spark-examples_2.12-3.2.0.jar"]
+arguments: ["/opt/bitnami/spark/examples/spark-executor.py", "spark-submit --conf=spark.jars.ivy=/tmp/.ivy --class=org.apache.spark.examples.SparkPi --deploy-mode=cluster"]
