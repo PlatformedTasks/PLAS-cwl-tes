@@ -1,0 +1,33 @@
+#!/usr/bin/env cwl-runner
+
+cwlVersion: v1.0
+
+class: CommandLineTool
+
+doc: "verify tensorflow training set"
+
+requirements:
+  - class: DockerRequirement
+    dockerPull: tensorflow/tensorflow
+
+inputs:
+  - id: tensorflow-evaluate
+    type: File
+    doc: "python to evaluate"
+    inputBinding:
+      position: 1
+  - id: tensorflow-trained-model
+    type: File
+    doc: "my tar model"
+    inputBinding:
+      position: 2
+
+outputs:
+  - id: output
+    type: stdout
+stdout: evaluate.log
+
+baseCommand: ["python"]
+arguments: [""]
+# baseCommand: ["sleep"]
+# arguments: ["9000"]

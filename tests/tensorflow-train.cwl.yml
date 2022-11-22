@@ -1,0 +1,32 @@
+#!/usr/bin/env cwl-runner
+
+cwlVersion: v1.0
+
+class: CommandLineTool
+
+doc: "verify tensorflow training set"
+
+requirements:
+  - class: DockerRequirement
+    dockerPull: tensorflow/tensorflow
+
+inputs:
+  - id: tensorflow-train
+    type: File
+    doc: "python for training"
+    inputBinding:
+      position: 1
+
+outputs:
+  - id: train-log
+    type: stdout
+  - id: trained-model
+    type: File
+    outputBinding:
+      glob: "my_model.tar.gz"
+stdout: train.log
+
+baseCommand: ["python"]
+arguments: [""]
+# baseCommand: ["sleep"]
+# arguments: ["9000"]
