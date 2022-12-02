@@ -1,0 +1,46 @@
+#!/usr/bin/env cwl-runner
+
+cwlVersion: v1.0
+
+class: CommandLineTool
+
+doc: "hash input through sha"
+
+requirements:
+  - class: DockerRequirement
+    dockerPull: kubler/openssl
+  - class: HelmRequirement
+    chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
+    chartVersion: "3.0.0"
+    chartName: "horovod"
+    executorImage: "platformedtasks/horovod:latest"
+
+inputs:
+  - id: input
+    type: File
+    doc: "original content"
+    inputBinding:
+      position: 1
+#  - id: input3
+#    type: File
+#  - id: input3
+#    type: File
+#    inputBinding:
+#      position: 2
+
+
+outputs:
+  - id: output
+    type: stdout
+
+stdout: sha
+
+baseCommand: ["openssl", "dgst"]
+arguments: ["-sha1"]
+
+#baseCommand: ["/bin/sh", "-c"]
+#arguments: ["sleep 30000"]
+
+
+
+

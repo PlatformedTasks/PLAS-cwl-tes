@@ -1,0 +1,29 @@
+#!/usr/bin/env cwl-runner
+cwlVersion: v1.0
+class: CommandLineTool
+doc: "helm horovod"
+requirements:
+  - class: DockerRequirement
+    dockerPull: platformedtasks/horovod:latest
+  - class: HelmRequirement
+    chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
+    chartVersion: "3.0.0"
+    chartName: "horovod"
+
+inputs:
+  - id: train
+    type: File
+    doc: "original content"
+    inputBinding:
+      position: 1
+  - id: values
+    type: File
+
+outputs:
+  - id: output
+    type: stdout
+
+stdout: horovod
+
+baseCommand: ["python3"]
+arguments: ["/horovod/examples/horovod-executor.py", "mpirun -np 2 --mca orte_keep_fqdn_hostnames t --allow-run-as-root --display-map --tag-output --timestamp-output"]

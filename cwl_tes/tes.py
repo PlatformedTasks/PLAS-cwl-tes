@@ -337,15 +337,25 @@ class TESTask(JobBase):
             )
         )
         requirement, _ = self.get_requirement("HelmRequirement")
-        chartrepo = None
-        chartversion = None
-        chartname = None
+        sidecar = None
+        # chartrepo = None
+        # chartversion = None
+        # chartname = None
         if requirement:
-            chartrepo = requirement.get("chartRepo")
-            chartversion = requirement.get("chartVersion")
-            chartname = requirement.get("chartName")
-            container = requirement.get("executorImage")
+            sidecar = tes.Sidecar(
+                type="Helm",
+                parameters = tes.ChartParameters(
+                    chartrepo = requirement.get("chartRepo"),
+                    chartversion = requirement.get("chartVersion"),
+                    chartname = requirement.get("chartName")
+                )
+            )
+            # chartrepo = requirement.get("chartRepo")
+            # chartversion = requirement.get("chartVersion")
+            # chartname = requirement.get("chartName")
+            # container = requirement.get("executorImage")
             print("330. HELMM!!!")
+            container = self.get_container()
         else:
             print("333. DOCKER")
             container = self.get_container()
@@ -354,6 +364,13 @@ class TESTask(JobBase):
         ram = res_reqs['ram'] / 953.674
         disk = (res_reqs['outdirSize'] + res_reqs['tmpdirSize']) / 953.674
         cpus = res_reqs['cores']
+
+        # LUCAAA TOGLIERE
+        print("335. RESOURCE MOD FOR VAGRANT")
+        ram = 0
+        disk = 0.01
+        cpus = 0
+        ###
 
         docker_req, _ = self.get_requirement("DockerRequirement")
         if docker_req and hasattr(docker_req, "dockerOutputDirectory"):
@@ -373,9 +390,7 @@ class TESTask(JobBase):
                 tes.Executor(
                     command=self.command_line,
                     image=container,
-                    chartrepo=chartrepo,
-                    chartversion=chartversion,
-                    chartname=chartname,
+                    sidecar=sidecar,
                     workdir=self.builder.outdir,
                     stdout=self.output2path(self.stdout),
                     stderr=self.output2path(self.stderr),

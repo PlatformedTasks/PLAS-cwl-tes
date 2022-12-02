@@ -6,6 +6,8 @@ from tes.models import (
     Input,
     Output,
     Resources,
+    ChartParameters,
+    Sidecar,
     Executor,
     Task,
     ExecutorLog,

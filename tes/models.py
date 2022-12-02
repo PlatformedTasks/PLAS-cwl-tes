@@ -163,6 +163,26 @@ class Resources(Base):
         default=None, converter=strconv, validator=optional(list_of(str))
     )
 
+@attrs
+class ChartParameters(Base):
+    chartrepo = attrib(
+        default=None, converter=strconv, validator=instance_of(str)
+    )
+    chartversion = attrib(
+        default=None, converter=strconv, validator=instance_of(str)
+    )
+    chartname = attrib(
+        default=None, converter=strconv, validator=instance_of(str)
+    )
+
+@attrs
+class Sidecar(Base):
+    type = attrib(
+        default=None, converter=strconv, validator=instance_of(str)
+    )
+    parameters = attrib(
+        default=None, validator=instance_of(ChartParameters)
+    )
 
 @attrs
 class Executor(Base):
@@ -173,14 +193,8 @@ class Executor(Base):
     command = attrib(
         converter=strconv, validator=list_of(str)
     )
-    chartrepo = attrib(
-        default=None, converter=strconv, validator=optional(instance_of(str))
-    )
-    chartversion = attrib(
-        default=None, converter=strconv, validator=optional(instance_of(str))
-    )
-    chartname = attrib(
-        default=None, converter=strconv, validator=optional(instance_of(str))
+    sidecar = attrib(
+        default=None, validator=optional(instance_of(Sidecar))
     )
     workdir = attrib(
         default=None, converter=strconv, validator=optional(instance_of(str))
@@ -197,6 +211,7 @@ class Executor(Base):
     env = attrib(
         default=None, validator=optional(instance_of(dict))
     )
+
 
 
 @attrs

@@ -1,0 +1,14 @@
+{
+    "input": {
+        "class": "File",
+        "location": "file_to_hash.txt"
+    },
+    "train": {
+        "class": "File",
+        "location": "train-easy-test.py"
+    },
+    "values": {
+        "class": "File",
+        "location": "horovod-values.yaml"
+    }
+}
