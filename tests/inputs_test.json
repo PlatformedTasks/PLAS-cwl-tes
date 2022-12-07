@@ -1,14 +1,10 @@
 {
     "input": {
         "class": "File",
-        "location": "file_to_hash.txt"
+        "location": "ftp://192.168.10.90/files/input.txt"
     },
     "train": {
         "class": "File",
-        "location": "train-easy-test.py"
-    },
-    "values": {
-        "class": "File",
-        "location": "horovod-values.yaml"
+        "location": "ftp://192.168.10.90/files/train-easy.py"
     }
 }

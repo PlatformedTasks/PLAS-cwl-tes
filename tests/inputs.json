@@ -5,8 +5,7 @@
     },
     "values": {
         "class": "File",
-        "location": "ftp://10.0.0.10/files/horovod-values.yaml",
-        "TMconfig": true
+        "location": "ftp://10.0.0.10/files/horovod-values.yaml"
     },
     "train": {
         "class": "File",

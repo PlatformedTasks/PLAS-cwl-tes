@@ -7,7 +7,7 @@ requirements:
     dockerPull: platformedtasks/horovod:latest
   - class: HelmRequirement
     chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
-    chartVersion: "3.0.0"
+    chartVersion: "3.1.1"
     chartName: "horovod"
 
 inputs:
@@ -16,8 +16,6 @@ inputs:
     doc: "original content"
     inputBinding:
       position: 1
-  - id: values
-    type: File
 
 outputs:
   - id: output

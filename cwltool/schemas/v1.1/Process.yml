@@ -134,10 +134,6 @@ $graph:
         _id: "@type"
         _type: "@vocab"
       doc: Must be `File` to indicate this object describes a file.
-    - name: TMconfig
-      type: boolean?
-      doc: |
-        An IRI that identifies the file resource.  This may be a relative
     - name: location
       type: string?
       doc: |

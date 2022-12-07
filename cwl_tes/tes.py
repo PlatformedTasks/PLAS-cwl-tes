@@ -204,17 +204,6 @@ class TESTask(JobBase):
             tes_input.content = d["contents"]
             tes_input.url = None
 
-        try:
-            if "TMconfig" in d:
-                if d["path"] in self.command_line:
-                    self.command_line.remove(d["path"])
-
-                tes_input.tmconfig = d["TMconfig"]
-                tes_input.path = "/" + d["basename"]
-        except Exception as err:
-            log.error(
-                "[job %s] task id: %s in create_input (tmconfig) %s", self.name, self.id, err
-            )
 
         return tes_input
 
@@ -365,11 +354,11 @@ class TESTask(JobBase):
         disk = (res_reqs['outdirSize'] + res_reqs['tmpdirSize']) / 953.674
         cpus = res_reqs['cores']
 
-        # LUCAAA TOGLIERE
-        print("335. RESOURCE MOD FOR VAGRANT")
-        ram = 0
-        disk = 0.01
-        cpus = 0
+        # AAA
+        # print("335. RESOURCE MOD FOR VAGRANT")
+        # ram = 0
+        # disk = 0.01
+        # cpus = 0
         ###
 
         docker_req, _ = self.get_requirement("DockerRequirement")
@@ -407,6 +396,9 @@ class TESTask(JobBase):
             ),
             tags={"CWLDocumentId": self.spec.get("id")}
         )
+        # print("------------------ AAA")
+        # print(create_body.as_json())
+        # print("------------------ AAA END")
         return create_body
 
     def run(self,

@@ -8,12 +8,11 @@ doc: "hash input through sha"
 
 requirements:
   - class: DockerRequirement
-    dockerPull: kubler/openssl
+    dockerPull: "platformedtasks/horovod:latest"
   - class: HelmRequirement
     chartRepo: "https://platformedtasks.github.io/PLAS-charts/charts"
-    chartVersion: "3.0.0"
+    chartVersion: "3.1.1"
     chartName: "horovod"
-    executorImage: "platformedtasks/horovod:latest"
 
 inputs:
   - id: input
